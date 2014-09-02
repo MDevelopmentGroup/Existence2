@@ -1,0 +1,11 @@
+<div class='col-lg-10'>
+		<input type='text' id='appendedInput'  ng-model='filterApp' placeholder='Search string'>
+		<span class='add-on'><i class='icon-filter'></i></span>
+</div><div class=''>
+	<a class='btn btn-success' href='#/CreateJournal'>Create Journal</a>
+	<div class='row' ng-repeat='Journal in Journals | filter:filterApp'>
+	<div class='col-lg-10'> {{Journal.TestProp}} </br></div>
+	<div class='col-lg-2'>
+	<button class='btn btn-default' ng-click='Delete(Journal.ID)'><span class='glyphicon glyphicon-trash'></span></button>
+	<a class='btn btn-default' href='#/UpdateJournal/{{Journal.ID}}'><span class='glyphicon glyphicon-refresh'></span></a>
+	</div></div></div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.TeacherSubjectChair">
+<Description>
+Преподаватель-предмет-кафедра(необязательная</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,68138.380593</TimeCreated>
+
+<UDLText name="T">
+<Content><![CDATA[
+/// TODO
+
+]]></Content>
+</UDLText>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.TeacherSubjectChairD</DataLocation>
+<DefaultData>TeacherSubjectChairDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.TeacherSubjectChairD</IdLocation>
+<IndexLocation>^EXISTENCE.TeacherSubjectChairI</IndexLocation>
+<StreamLocation>^EXISTENCE.TeacherSubjectChairS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="TeacherSubjectChairDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.EmployeeСathedra">
+<Description>
+Сотрудник-Кафедра</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63342,40835.805214</TimeCreated>
+
+<Property name="NameEmployee">
+<Description>
+Фио сотрудника кафедры</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="Post">
+<Description>
+должность</Description>
+<Type>EXISTENCE.Employee</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Post</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Сathedra">
+<Description>
+ID кафедры в структуре</Description>
+<Type>EXISTENCE.Structure</Type>
+<Cardinality>one</Cardinality>
+<Inverse>StructEC</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.UEmployee421athedraD</DataLocation>
+<DefaultData>EmployeeСathedraDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.UEmployee421athedraD</IdLocation>
+<IndexLocation>^EXISTENCE.UEmployee421athedraI</IndexLocation>
+<StreamLocation>^EXISTENCE.UEmployee421athedraS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="EmployeeСathedraDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>NameEmployee</Value>
+</Value>
+<Value name="3">
+<Value>Post</Value>
+</Value>
+<Value name="4">
+<Value>Сathedra</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

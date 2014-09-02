@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.Employee">
+<Description>
+Сотрудник</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,66806.254489</TimeCreated>
+
+<Property name="NameEmployee">
+<Description>
+ФИО</Description>
+<Type>EXISTENCE.PPG</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Employee</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="AcademicTitle">
+<Description>
+Ученое звание</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="Post">
+<Description>
+должность</Description>
+<Type>EXISTENCE.EmployeeСathedra</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Post</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Degree">
+<Description>
+Научная степень</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="Cathedra">
+<Description>
+Кафедра</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="Profile">
+<Description>
+Профиль</Description>
+<Type>%String</Type>
+</Property>
+
+<Method name="GetEmployee">
+<Description>
+Получение ID преподавателя </Description>
+<ClassMethod>1</ClassMethod>
+<FormalSpec>ID:%Integer</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	SET SQL = "SELECT * FROM EXISTENCE.Employee WHERE ID="_ID
+	do ##class(%ZEN.Auxiliary.jsonSQLProvider).%WriteJSONFromSQL(,SQL)
+	Q $$$OK
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.EmployeeD</DataLocation>
+<DefaultData>EmployeeDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.EmployeeD</IdLocation>
+<IndexLocation>^EXISTENCE.EmployeeI</IndexLocation>
+<StreamLocation>^EXISTENCE.EmployeeS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="EmployeeDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>EmployeeName</Value>
+</Value>
+<Value name="3">
+<Value>AcademicTitle</Value>
+</Value>
+<Value name="4">
+<Value>Post</Value>
+</Value>
+<Value name="5">
+<Value>Degree</Value>
+</Value>
+<Value name="6">
+<Value>Cathedra</Value>
+</Value>
+<Value name="7">
+<Value>Profile</Value>
+</Value>
+<Value name="8">
+<Value>NameEmployee</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

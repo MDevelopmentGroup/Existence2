@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.PPG">
+<Description>
+Таблица преподаватель-предмет-группа</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,68319.213268</TimeCreated>
+
+<Property name="Employee">
+<Description>
+Связь с EXISTENCE.Employee</Description>
+<Type>EXISTENCE.Employee</Type>
+<Cardinality>one</Cardinality>
+<Inverse>NameEmployee</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Subject">
+<Description>
+Связь с EXISTENCE.Subject</Description>
+<Type>EXISTENCE.Subject</Type>
+<Cardinality>one</Cardinality>
+<Inverse>SubjectName</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Group">
+<Description>
+Связь со EXISTENCE.Structure</Description>
+<Type>EXISTENCE.Structure</Type>
+<Cardinality>one</Cardinality>
+<Inverse>StructPPG</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Lesson">
+<Description>
+Связь с табл. Занятие</Description>
+<Type>EXISTENCE.Lesson</Type>
+<Cardinality>many</Cardinality>
+<Inverse>PPG</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Method name="CreateJournal">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set status = ##class(%ZEN.Auxiliary.jsonProvider).%ConvertJSONToObject(%request.Content,,.obj,1)
+	set NewPPG = ##class(EXISTENCE.PPG).%New()
+	set NewPPG.Employee = ##class(EXISTENCE.Employee).%OpenId(obj.Employee)
+	set NewPPG.Subject = ##class(EXISTENCE.Subject).%OpenId(obj.Subject)
+	set NewPPG.Structure = ##class(EXISTENCE.Structure).%OpenId(obj.Srtuctute)
+	set status = NewPPG.%Save()
+	set NewLesson = ##class(EXISTENCE.Lesson).%New()
+	set NewLesson.PPG = NewPPG
+	set NewLesson.TypeClasses = obj.TypeClasses
+	set status = NewPPG.%Save()
+	Q $$$OK
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.PPGD</DataLocation>
+<DefaultData>PPGDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.PPGD</IdLocation>
+<IndexLocation>^EXISTENCE.PPGI</IndexLocation>
+<StreamLocation>^EXISTENCE.PPGS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="PPGDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Employee</Value>
+</Value>
+<Value name="3">
+<Value>Subject</Value>
+</Value>
+<Value name="4">
+<Value>Group</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

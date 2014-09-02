@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.POPUTILS">
+<Description>
+класс генерации данных</Description>
+<Abstract>1</Abstract>
+<TimeCreated>63345,54885.215366</TimeCreated>
+
+<Method name="StudentName">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+    s t1=$lb("Александр",
+    "Андрей","Николай","Вячеслав",
+    "Михаил","Алексей","Олег",
+    "Дмитрий","Василий",
+    "Игорь","Сергей","Петр")
+    return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="StudentNameFirst">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+    s t1=$lb("Абдрахманов",
+    "Алексеев","Николаев","Ворчун",
+    "Михайлов","Иванов","Сидоров",
+    "Дмитриев","Васильев",
+    "Петров","Сергеев","Петровский")
+    return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="GroupNumber">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+    s t1=$lb("ПИ-207",
+    "СТС-301","БПС-203","ПРО-105",
+    "ФЭБ-204","ИБ-106")
+    return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="SubjectGeneration">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+    s t1=$lb("Радиоэлектроника",
+    "Электротехника","Физика","История",
+    "Философия","Высшая математика",
+     "Экономика", "Японский язык", 
+     "Базы данных", "Менеджмент")
+    return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="Zachet">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[	return $r(777777)
+]]></Implementation>
+</Method>
+
+<Method name="Subject">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	SET SQL = "SELECT*  FROM EXISTENCE.Subject"
+	do ##class(%ZEN.Auxiliary.jsonSQLProvider).%WriteJSONFromSQL(,SQL)
+	Q $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="Group">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	SET SQL = "SELECT* FROM EXISTENCE.Structure WHERE Type like 'Group'"
+	do ##class(%ZEN.Auxiliary.jsonSQLProvider).%WriteJSONFromSQL(,SQL)
+	Q $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="TypeLesson">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	SET SQL = "SELECT TypeClasses FROM EXISTENCE.Lesson"
+	do ##class(%ZEN.Auxiliary.jsonSQLProvider).%WriteJSONFromSQL(,SQL)
+	Q $$$OK
+]]></Implementation>
+</Method>
+</Class>
+</Export>

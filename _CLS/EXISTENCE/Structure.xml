@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.Structure">
+<Description>
+Организационная структура</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,64147.635857</TimeCreated>
+
+<Property name="Identifier">
+<Description>
+Идентификатор</Description>
+<Type>%Numeric</Type>
+</Property>
+
+<Property name="SubID">
+<Description>
+Суб-идентификатор</Description>
+<Type>%Numeric</Type>
+</Property>
+
+<Property name="Type">
+<Description>
+Тип (н-р: ВУЗ, Факультет)</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="StGroup">
+<Description>
+Связь со студент-группа</Description>
+<Type>EXISTENCE.StudentGroup</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Group</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Comment">
+<Description>
+Комментарий к названию </Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="Title">
+<Description>
+Название </Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="StructPPG">
+<Description>
+Связь с группой в табл. Преподаватель-предмет-группа</Description>
+<Type>EXISTENCE.PPG</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Group</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="StructEC">
+<Description>
+Связь с группой в табл. Сотрудник Кафедры</Description>
+<Type>EXISTENCE.EmployeeСathedra</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Сathedra</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.StructureD</DataLocation>
+<DefaultData>StructureDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.StructureD</IdLocation>
+<IndexLocation>^EXISTENCE.StructureI</IndexLocation>
+<StreamLocation>^EXISTENCE.StructureS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="StructureDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>ID</Value>
+</Value>
+<Value name="3">
+<Value>SID</Value>
+</Value>
+<Value name="4">
+<Value>Title</Value>
+</Value>
+<Value name="5">
+<Value>Comment</Value>
+</Value>
+<Value name="6">
+<Value>SubID</Value>
+</Value>
+<Value name="7">
+<Value>Type</Value>
+</Value>
+<Value name="8">
+<Value>Struct</Value>
+</Value>
+<Value name="9">
+<Value>Identifier</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

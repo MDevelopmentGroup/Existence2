@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.Subject">
+<Description>
+класс Предмет</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,65930.554408</TimeCreated>
+
+<Parameter name="POPSPEC">
+<Default>SubjectName:##class(EXISTENCE.POPUTILS).SubjectGeneration()</Default>
+</Parameter>
+
+<Property name="SubjectName">
+<Description>
+Наименование предмета</Description>
+<Type>EXISTENCE.PPG</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Subject</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.SubjectD</DataLocation>
+<DefaultData>SubjectDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.SubjectD</IdLocation>
+<IndexLocation>^EXISTENCE.SubjectI</IndexLocation>
+<StreamLocation>^EXISTENCE.SubjectS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="SubjectDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>SubjectName</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

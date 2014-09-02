@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.StudentGroup">
+<Description>
+Таблица Студент-группа</Description>
+<Super>%Persistent,%Populate</Super>
+<TimeCreated>63341,64290.59481</TimeCreated>
+
+<Property name="Subgroup">
+<Description>
+Подгруппа</Description>
+<Type>%Boolean</Type>
+</Property>
+
+<Property name="Student">
+<Description>
+Связь со студентом</Description>
+<Type>EXISTENCE.Student</Type>
+<Cardinality>one</Cardinality>
+<Inverse>StudentGroup</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Group">
+<Description>
+Связь со структурой</Description>
+<Type>EXISTENCE.Structure</Type>
+<Cardinality>one</Cardinality>
+<Inverse>StGroup</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Attendance">
+<Description>
+Связь с табл.Посещение </Description>
+<Type>EXISTENCE.Attendance</Type>
+<Cardinality>many</Cardinality>
+<Inverse>StudentGroup</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.StudentGroupD</DataLocation>
+<DefaultData>StudentGroupDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.StudentGroupD</IdLocation>
+<IndexLocation>^EXISTENCE.StudentGroupI</IndexLocation>
+<StreamLocation>^EXISTENCE.StudentGroupS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="StudentGroupDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Subgroup</Value>
+</Value>
+<Value name="3">
+<Value>Student</Value>
+</Value>
+<Value name="4">
+<Value>Group</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.Attendance">
+<Description>
+Таблица посещение</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,66820.568909</TimeCreated>
+
+<Property name="Attendance">
+<Description>
+Посещаемость (был/не был)</Description>
+<Type>%Boolean</Type>
+</Property>
+
+<Property name="Comment">
+<Description>
+Комментарий</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="Mark">
+<Description>
+Балл</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="StudentGroup">
+<Description>
+Связь со Студент-группа</Description>
+<Type>EXISTENCE.StudentGroup</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Attendance</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Lesson">
+<Description>
+Связь с табл. Занятие</Description>
+<Type>EXISTENCE.Lesson</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Attendance</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.AttendanceD</DataLocation>
+<DefaultData>AttendanceDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.AttendanceD</IdLocation>
+<IndexLocation>^EXISTENCE.AttendanceI</IndexLocation>
+<StreamLocation>^EXISTENCE.AttendanceS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="AttendanceDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Attendance</Value>
+</Value>
+<Value name="3">
+<Value>Comment</Value>
+</Value>
+<Value name="4">
+<Value>Mark</Value>
+</Value>
+<Value name="5">
+<Value>StudentGroup</Value>
+</Value>
+<Value name="6">
+<Value>Lesson</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

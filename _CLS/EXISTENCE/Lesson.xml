@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.Lesson">
+<Description>
+Класс занятие</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,64800.29627</TimeCreated>
+
+<Property name="Time">
+<Description>
+Время занятия</Description>
+<Type>%Time</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Title">
+<Description>
+тема занятия</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="TypeClasses">
+<Description>
+тип занятия</Description>
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Attendance">
+<Description>
+Связь с табл. Посещение</Description>
+<Type>EXISTENCE.Attendance</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Lesson</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="PPG">
+<Description>
+Связь с табл. Преподаватель-предмет-группа</Description>
+<Type>EXISTENCE.PPG</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Lesson</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.LessonD</DataLocation>
+<DefaultData>LessonDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.LessonD</IdLocation>
+<IndexLocation>^EXISTENCE.LessonI</IndexLocation>
+<StreamLocation>^EXISTENCE.LessonS</StreamLocation>
+<ExtentSize>100000</ExtentSize>
+<Data name="LessonDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Time</Value>
+</Value>
+<Value name="3">
+<Value>Title</Value>
+</Value>
+<Value name="4">
+<Value>TypeClasses</Value>
+</Value>
+<Value name="5">
+<Value>PPG</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

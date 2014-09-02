@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="EXISTENCE.Student">
+<Description>
+Таблица Студент</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeCreated>63341,63815.920437</TimeCreated>
+
+<Parameter name="POPSPEC">
+<Default>Name:##class(EXISTENCE.POPUTILS).StudentName(),IDStudent:##class(EXISTENCE.POPUTILS).Zachet(),Group:##class(EXISTENCE.POPUTILS).GroupNumber()</Default>
+</Parameter>
+
+<Property name="Name">
+<Description>
+ФИО студента</Description>
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="IDStudent">
+<Description>
+Идентификационный номер (номер зачетной книжки)</Description>
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Group">
+<Description>
+Группа, к которой относится студент</Description>
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Contract">
+<Description>
+Форма обучения (бюджет или коммерция)</Description>
+<Type>%Boolean</Type>
+</Property>
+
+<Property name="StudentGroup">
+<Description>
+Связь со студент-группа</Description>
+<Type>EXISTENCE.StudentGroup</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Student</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Method name="GetStudents">
+<Description>
+Метод получения списка студентов</Description>
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	SET SQL = "SELECT * FROM EXISTENCE.Student"
+	do ##class(%ZEN.Auxiliary.jsonSQLProvider).%WriteJSONFromSQL(,SQL)
+	Q $$$OK
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^EXISTENCE.StudentD</DataLocation>
+<DefaultData>StudentDefaultData</DefaultData>
+<IdLocation>^EXISTENCE.StudentD</IdLocation>
+<IndexLocation>^EXISTENCE.StudentI</IndexLocation>
+<StreamLocation>^EXISTENCE.StudentS</StreamLocation>
+<ExtentSize>26</ExtentSize>
+<Data name="StudentDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Name</Value>
+</Value>
+<Value name="3">
+<Value>IDStudent</Value>
+</Value>
+<Value name="4">
+<Value>Group</Value>
+</Value>
+<Value name="5">
+<Value>FT</Value>
+</Value>
+<Value name="6">
+<Value>Contract</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+</Property>
+<Property name="Contract">
+<Selectivity>50.0000%</Selectivity>
+</Property>
+<Property name="Group">
+<Selectivity>3.8462%</Selectivity>
+</Property>
+<Property name="IDStudent">
+<Selectivity>3.8462%</Selectivity>
+</Property>
+<Property name="Name">
+<Selectivity>3.8462%</Selectivity>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+</Class>
+</Export>

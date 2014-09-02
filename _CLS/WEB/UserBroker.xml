@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="WEB.UserBroker">
+<Super>%CSP.REST</Super>
+<TimeCreated>63345,51557.930308</TimeCreated>
+
+<XData name="UrlMap">
+<Data><![CDATA[
+<Routes> <!--
+	  <Route Url="/IDEmployee" 				Method="GET" 	 Call="EXISTENCE.Employee.GetEmployee"/> 
+	  <Route Url="/journal" 				Method="GET" 	 Call="EXISTENCE.Journal.GetJournal"/> 
+	  <Route Url="/createjournal" 		   Method="GET" 	Call="EXISTENCE.Journal.GetJournal"/>
+	  <Route Url="/savejournal" 		   Method="POST" 	Call="EXISTENCE.Journal.CreateJournal"/>
+	  <Route Url="/viewjournal" 		   Method="GET" 	Call="EXISTENCE.Journal.GetLessons"/>
+	  <Route Url="/createlesson" 		   Method="GET" 	Call="EXISTENCE.Student.GetStudents"/>
+	  <Route Url="/savelesson" 			   Method="POST" 	Call="EXISTENCE.Journal.CreateLesson"/>
+	  <Route Url="/viewlesson" 			   Method="GET" 	Call="EXISTENCE.Journal.GetLessonInfo"/>
+	  <Route Url="/students" 			   Method="GET" 	Call="EXISTENCE.Student.GetStudents"/>
+	  <Route Url="/viewstudents" 		   Method="GET" 	Call="EXISTENCE.Student.GetStudents"/>
+	  -->
+</Routes>
+]]></Data>
+</XData>
+</Class>
+</Export>
